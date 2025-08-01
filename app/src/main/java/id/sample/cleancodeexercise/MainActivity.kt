@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     fun onSubmitClicked() {
         val nf = NumberFormat.getNumberInstance(Locale("in","ID"))
         // repeated formatting configuration ...
-        val rem = nf.parse(remainingBalanceText.text.toString().replace("Rp",""))?.toDouble() ?: 0.0
-        val tot = nf.parse(totalText.text.toString().replace("Rp",""))?.toDouble() ?: 0.0
+        val rem = nf.parse(remainingBalanceText.text.toString().replace("Rp","").replace(".",""))?.toDouble() ?: 0.0
+        val tot = nf.parse(totalText.text.toString().replace("Rp","").replace(".",""))?.toDouble() ?: 0.0
         if (tot > rem) {
             AlertDialog.Builder(this)
                 .setTitle("Balance Insufficient")
